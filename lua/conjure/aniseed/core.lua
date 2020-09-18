@@ -1,6 +1,6 @@
 local _0_0 = nil
 do
-  local name_0_ = "conjure.aniseed.core"
+  local name_0_ = "aniseed.core"
   local loaded_0_ = package.loaded[name_0_]
   local module_0_ = nil
   if ("table" == type(loaded_0_)) then
@@ -14,12 +14,12 @@ do
   package.loaded[name_0_] = module_0_
   _0_0 = module_0_
 end
-local function _1_(...)
-  _0_0["aniseed/local-fns"] = {require = {view = "conjure.aniseed.view"}}
-  return {require("conjure.aniseed.view")}
+local function _2_(...)
+  _0_0["aniseed/local-fns"] = {require = {view = "aniseed.view"}}
+  return {require("aniseed.view")}
 end
-local _2_ = _1_(...)
-local view = _2_[1]
+local _1_ = _2_(...)
+local view = _1_[1]
 do local _ = ({nil, _0_0, {{}, nil}})[2] end
 math.randomseed(os.time())
 local rand = nil

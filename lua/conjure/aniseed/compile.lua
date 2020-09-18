@@ -1,6 +1,6 @@
 local _0_0 = nil
 do
-  local name_0_ = "conjure.aniseed.compile"
+  local name_0_ = "aniseed.compile"
   local loaded_0_ = package.loaded[name_0_]
   local module_0_ = nil
   if ("table" == type(loaded_0_)) then
@@ -14,19 +14,35 @@ do
   package.loaded[name_0_] = module_0_
   _0_0 = module_0_
 end
-local function _1_(...)
-  _0_0["aniseed/local-fns"] = {require = {a = "conjure.aniseed.core", fennel = "conjure.aniseed.fennel", fs = "conjure.aniseed.fs", nvim = "conjure.aniseed.nvim"}}
-  return {require("conjure.aniseed.core"), require("conjure.aniseed.fennel"), require("conjure.aniseed.fs"), require("conjure.aniseed.nvim")}
+local function _2_(...)
+  _0_0["aniseed/local-fns"] = {require = {a = "aniseed.core", fennel = "aniseed.fennel", fs = "aniseed.fs", nvim = "aniseed.nvim"}}
+  return {require("aniseed.core"), require("aniseed.fennel"), require("aniseed.fs"), require("aniseed.nvim")}
 end
-local _2_ = _1_(...)
-local a = _2_[1]
-local fennel = _2_[2]
-local fs = _2_[3]
-local nvim = _2_[4]
+local _1_ = _2_(...)
+local a = _1_[1]
+local fennel = _1_[2]
+local fs = _1_[3]
+local nvim = _1_[4]
 do local _ = ({nil, _0_0, {{}, nil}})[2] end
 do
   local fnl_suffixes = string.gsub(string.gsub(package.path, "%.lua;", ".fnl;"), "%.lua$", ".fnl")
   fennel.path = (string.gsub(fnl_suffixes, "/lua/", "/fnl/") .. ";" .. fnl_suffixes)
+end
+local add_path = nil
+do
+  local v_0_ = nil
+  do
+    local v_0_0 = nil
+    local function add_path0(path)
+      fennel.path = (fennel.path .. ";" .. path)
+      return nil
+    end
+    v_0_0 = add_path0
+    _0_0["add-path"] = v_0_0
+    v_0_ = v_0_0
+  end
+  _0_0["aniseed/locals"]["add-path"] = v_0_
+  add_path = v_0_
 end
 local macros_prefix = nil
 do
@@ -34,7 +50,7 @@ do
   do
     local v_0_0 = nil
     local function macros_prefix0(code)
-      local macros_module = "conjure.aniseed.macros"
+      local macros_module = "aniseed.macros"
       return ("(require-macros \"" .. macros_module .. "\")\n" .. code)
     end
     v_0_0 = macros_prefix0

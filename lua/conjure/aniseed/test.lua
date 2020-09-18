@@ -1,6 +1,6 @@
 local _0_0 = nil
 do
-  local name_0_ = "conjure.aniseed.test"
+  local name_0_ = "aniseed.test"
   local loaded_0_ = package.loaded[name_0_]
   local module_0_ = nil
   if ("table" == type(loaded_0_)) then
@@ -14,14 +14,14 @@ do
   package.loaded[name_0_] = module_0_
   _0_0 = module_0_
 end
-local function _1_(...)
-  _0_0["aniseed/local-fns"] = {require = {a = "conjure.aniseed.core", nvim = "conjure.aniseed.nvim", str = "conjure.aniseed.string"}}
-  return {require("conjure.aniseed.core"), require("conjure.aniseed.nvim"), require("conjure.aniseed.string")}
+local function _2_(...)
+  _0_0["aniseed/local-fns"] = {require = {a = "aniseed.core", nvim = "aniseed.nvim", str = "aniseed.string"}}
+  return {require("aniseed.core"), require("aniseed.nvim"), require("aniseed.string")}
 end
-local _2_ = _1_(...)
-local a = _2_[1]
-local nvim = _2_[2]
-local str = _2_[3]
+local _1_ = _2_(...)
+local a = _1_[1]
+local nvim = _1_[2]
+local str = _1_[3]
 do local _ = ({nil, _0_0, {{}, nil}})[2] end
 local ok_3f = nil
 do

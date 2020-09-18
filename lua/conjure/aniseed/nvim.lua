@@ -1,12 +1,12 @@
 local _0_0 = nil
 do
-  local name_0_ = "conjure.aniseed.nvim"
+  local name_0_ = "aniseed.nvim"
   local loaded_0_ = package.loaded[name_0_]
   local module_0_ = nil
   if ("table" == type(loaded_0_)) then
     module_0_ = loaded_0_
   else
-    module_0_ = require("conjure.aniseed.deps.nvim")
+    module_0_ = require("aniseed.deps.nvim")
   end
   module_0_["aniseed/module"] = name_0_
   module_0_["aniseed/locals"] = (module_0_["aniseed/locals"] or {})
@@ -14,9 +14,9 @@ do
   package.loaded[name_0_] = module_0_
   _0_0 = module_0_
 end
-local function _1_(...)
+local function _2_(...)
   _0_0["aniseed/local-fns"] = {}
   return {}
 end
-local _2_ = _1_(...)
+local _1_ = _2_(...)
 return ({nil, _0_0, {{}, nil}})[2]

@@ -1,6 +1,6 @@
 local _0_0 = nil
 do
-  local name_0_ = "conjure.aniseed.string"
+  local name_0_ = "aniseed.string"
   local loaded_0_ = package.loaded[name_0_]
   local module_0_ = nil
   if ("table" == type(loaded_0_)) then
@@ -14,12 +14,12 @@ do
   package.loaded[name_0_] = module_0_
   _0_0 = module_0_
 end
-local function _1_(...)
-  _0_0["aniseed/local-fns"] = {require = {a = "conjure.aniseed.core"}}
-  return {require("conjure.aniseed.core")}
+local function _2_(...)
+  _0_0["aniseed/local-fns"] = {require = {a = "aniseed.core"}}
+  return {require("aniseed.core")}
 end
-local _2_ = _1_(...)
-local a = _2_[1]
+local _1_ = _2_(...)
+local a = _1_[1]
 do local _ = ({nil, _0_0, {{}, nil}})[2] end
 local join = nil
 do
@@ -28,16 +28,16 @@ do
     local v_0_0 = nil
     local function join0(...)
       local args = {...}
-      local function _3_(...)
+      local function _4_(...)
         if (2 == a.count(args)) then
           return args
         else
           return {"", a.first(args)}
         end
       end
-      local _4_ = _3_(...)
-      local sep = _4_[1]
-      local xs = _4_[2]
+      local _3_ = _4_(...)
+      local sep = _3_[1]
+      local xs = _3_[2]
       local len = a.count(xs)
       local result = {}
       if (len > 0) then
