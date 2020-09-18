@@ -379,13 +379,23 @@
         (string.sub current-ns 1 -6)
         (.. current-ns "-test")))))
 
+(def test-patterns [".*defflow%s+(.-)%s+.*"
+                    ".*deftest%s+(.-)%s+.*"])
+
+(defn- run-test-pattern [content test-pattern]
+  (let [(test-name sub-count) (string.gsub content test-pattern "%1")]
+    (when (and (not (a.empty? test-name)) (= 1 sub-count))
+      test-name)))
+  
+(defn- extract-test-name [content]
+  (a.some (partial run-test-pattern content) test-patterns))
+
 (defn run-current-test []
   (try-ensure-conn)
   (let [form (extract.form {:root? true})]
     (when form
-      (let [(test-name sub-count)
-            (string.gsub form.content ".*deftest%s+(.-)%s+.*" "%1")]
-        (when (and (not (a.empty? test-name)) (= 1 sub-count))
+      (let [test-name (extract-test-name form.content)]
+        (when (not (a.empty? test-name))
           (log.append [(.. "; run-current-test: " test-name)]
                       {:break? true})
           (require-ns "clojure.test")
